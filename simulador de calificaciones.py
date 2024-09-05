@@ -20,4 +20,18 @@ def notas():
     print('La nota final es:', nota_final)
     return nota_final
 
-notas()
+def menu():
+    print("Seleccione una opción:")
+    print("1. Ver simulador de calificaciones")
+    print("2. Calcular nota final")
+    
+    opcion = input("Ingrese el número de su elección: ")
+
+    if opcion == '1':
+        return simulador_calf()
+    elif opcion == '2':
+        return notas()
+    else:
+        print("Opción no válida. Intente de nuevo.")
+        
+menu()
