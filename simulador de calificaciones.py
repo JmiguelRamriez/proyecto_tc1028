@@ -4,7 +4,15 @@
 def simulador_calf():
     print('El total de todas las actividades equivale al 70% de la calificación final')
     print('El examen equivale al 30% de la calificación final')
-    return simulador_calf
+    while True:
+        volver = input("¿Desea volver al menú principal? (s/n): ")
+        if volver == 's':
+            return
+        elif volver == 'n':
+            print("Saliendo del simulador.")
+            break
+        else:
+            print("Opción no válida, por favor ingrese 's' para sí o 'n' para no.")
 
 def notas():
     act1 = float(input('Ingrese su calificación de la actividad 1: '))
@@ -21,17 +29,22 @@ def notas():
     return nota_final
 
 def menu():
-    print("Seleccione una opción:")
-    print("1. Ver simulador de calificaciones")
-    print("2. Calcular nota final")
-    
-    opcion = input("Ingrese el número de su elección: ")
+    while True:
+        print("\nSeleccione una opción:")
+        print("1. Ver como funciona el simulador")
+        print("2. Calcular nota final")
+        print("3. Salir")
 
-    if opcion == '1':
-        return simulador_calf()
-    elif opcion == '2':
-        return notas()
-    else:
-        print("Opción no válida. Intente de nuevo.")
-        
+        opcion = input("Ingrese el número de su elección: ")
+
+        if opcion == '1':
+            simulador_calf()
+        elif opcion == '2':
+            notas()
+        elif opcion == '3':
+            print("Saliendo del programa...")
+            break
+        else:
+            print("Opción no válida. Intente de nuevo.")
+
 menu()
