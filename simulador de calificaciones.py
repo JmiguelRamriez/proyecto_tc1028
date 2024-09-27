@@ -2,6 +2,7 @@
 
 
 def simulador_calf():
+def simulador_calf():
     print('El total de todas las actividades equivale al 70% de la calificación final')
     print('El examen equivale al 30% de la calificación final')
     while True:
@@ -15,16 +16,20 @@ def simulador_calf():
             print("Opción no válida, por favor ingrese 's' para sí o 'n' para no.")
 
 def notas():
-    act1 = float(input('Ingrese su calificación de la actividad 1: '))
-    act2 = float(input('Ingrese su calificación de la actividad 2: '))
-    act3 = float(input('Ingrese su calificación de la actividad 3: '))
-    act4 = float(input('Ingrese su calificación de la actividad 4: '))
+    actividades = []
+    
+    for i in range(1, 5):
+        calificacion = float(input(f'Ingrese su calificación de la actividad {i}: '))
+        actividades.append(calificacion)  
+
     exam = float(input('Ingrese su calificación en el examen: '))
 
-    actividades = 0.70 * ((act1 + act2 + act3 + act4) / 4)
-    examen = 0.30 * exam
+    promedio_actividades = sum(actividades) / len(actividades)
+    
+    actividades_final = 0.70 * promedio_actividades
+    examen_final = 0.30 * exam
 
-    nota_final = actividades + examen
+    nota_final = actividades_final + examen_final
     print('La nota final es:', nota_final)
     return nota_final
 
@@ -44,6 +49,11 @@ def menu():
         elif opcion == '3':
             print("Saliendo del programa...")
             break
+        else:
+            print("Opción no válida. Intente de nuevo.")
+
+menu()
+
         else:
             print("Opción no válida. Intente de nuevo.")
 
