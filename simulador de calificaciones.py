@@ -128,6 +128,7 @@ def menu():
         # Seleccion de opciones
         if opcion == '1':
             simulador_calf()  # Explicacion del simulador
+            break
         elif opcion == '2':
             matriz_calificaciones = ingresar_calificaciones()  # Ingreso de calificaciones
             calcular_notas(matriz_calificaciones)  # Calculo de notas finales
