@@ -1,7 +1,7 @@
 """
 Simulador de calificaciones
 El programa permite ingresar las calificaciones de varias actividades y un examen final para varios estudiantes, 
-y calcula su nota final ponderada. Las actividades equivalen al 70% y el examen al 30% de la calificacion total.
+y calcula su nota final ponderada. Las actividades equivalen al 70% y el examen al 30% de la calificacion total
 """
 
 """
@@ -11,10 +11,10 @@ y calcula su nota final ponderada. Las actividades equivalen al 70% y el examen 
 def simulador_calf():
     """
     Explica al usuario la distribucion de la calificacion total:
-    - Las actividades tienen un peso del 70%.
-    - El examen tiene un peso del 30%.
+    - Las actividades tienen un peso del 70%
+    - El examen tiene un peso del 30%
     
-    El usuario puede decidir si regresar al menu principal o salir del simulador.
+    El usuario puede decidir si regresar al menu principal o salir del simulador
     """
     print('El total de todas las actividades equivale al 70% de la calificacion final')
     print('El examen equivale al 30% de la calificacion final')
@@ -41,11 +41,11 @@ def calcular_notas(matriz_calificaciones):
 
     Recibe:
     - matriz_calificaciones: Lista de listas, donde cada sublista contiene 
-      las calificaciones de un estudiante (4 actividades y 1 examen).
+      las calificaciones de un estudiante (4 actividades y 1 examen)
 
     Para cada estudiante:
     - Calcula el promedio de las actividades.
-    - Aplica los porcentajes (70% actividades, 30% examen).
+    - Aplica los porcentajes (70% actividades, 30% examen)
     - Imprime la nota final de cada estudiante.
     """
     estudiante_num = 1  # Contador para identificar a los estudiantes
@@ -71,37 +71,52 @@ def calcular_notas(matriz_calificaciones):
 ================== Funcion para ingresar calificaciones  ======================
 """
 
+"""
+================== Funcion para ingresar calificaciones con validacion  =======
+"""
+
 def ingresar_calificaciones():
     """
     Solicita al usuario que ingrese las calificaciones de los estudiantes 
-    para 4 actividades y 1 examen. La cantidad de estudiantes la decide 
-    el usuario.
+    para 4 actividades y 1 examen, asegurándose de que estén entre 0 y 10. 
+    La cantidad de estudiantes la decide el usuario.
 
     Devuelve:
     - Una matriz de calificaciones, donde cada fila es una lista de 
       calificaciones de un estudiante.
     """
-    matriz_calificaciones = []  # Lista vacia para almacenar las calificaciones
-    num_estudiantes = int(input('¿Cuantos estudiantes desea ingresar?: '))
+    matriz_calificaciones = []  # Lista vacía para almacenar las calificaciones
+    num_estudiantes = int(input('¿Cuántos estudiantes desea ingresar?: '))
 
     # Bucle para ingresar las calificaciones de cada estudiante
     for i in range(num_estudiantes):
         calificaciones = []  # Lista para almacenar las calificaciones de un estudiante
-        print('Estudiante: ', i + 1)
-        
-        # Ingreso de las 4 calificaciones de las actividades
-        for j in range(1, 5):  
-            calificacion = float(input('Ingrese su calificacion de la actividad ' + str(j) + ': '))
-            calificaciones.append(calificacion)
+        print(f'Estudiante {i + 1}')
 
-        # Ingreso de la calificacion del examen
-        examen = float(input('Ingrese su calificacion en el examen: '))
-        calificaciones.append(examen)  # Agrega la calificacion del examen
+        # Ingreso de las 4 calificaciones de las actividades
+        for j in range(1, 5):
+            while True:
+                calificacion = float(input(f'Ingrese su calificación de la actividad {j} (0-10): '))
+                if 0 <= calificacion <= 10:
+                    calificaciones.append(calificacion)
+                    break
+                else:
+                    print("Calificación inválida. Debe estar entre 0 y 10.")
+
+        # Ingreso de la calificación del examen
+        while True:
+            examen = float(input('Ingrese su calificación en el examen (0-10): '))
+            if 0 <= examen <= 10:
+                calificaciones.append(examen)
+                break
+            else:
+                print("Calificación inválida. Debe estar entre 0 y 10.")
         
         # Agrega la lista de calificaciones del estudiante a la matriz
-        matriz_calificaciones.append(calificaciones)  
+        matriz_calificaciones.append(calificaciones)
 
     return matriz_calificaciones  # Devuelve la matriz completa de calificaciones
+
 
 """
 ================== Funcion del menu principal  ================================
@@ -118,7 +133,7 @@ def menu():
     """
     while True:
         # Muestra el menu con las opciones
-        print("\nSeleccione una opcion:")
+        print("Seleccione una opcion:")
         print("1. Ver como funciona el simulador")
         print("2. Ingresar calificaciones y calcular notas finales")
         print("3. Salir")
