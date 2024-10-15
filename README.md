@@ -116,3 +116,9 @@ Cambio realizado: Se borro la funcion repetida
 Líneas de código donde se ve la corrección: 4 a 5
 
 
+============================ Referencias =====================================
+Para mi proyecto tuve que investigar sobre el uso de strings, en el codigo esto se ve utilizado en las lineas 66 y 99. De esta fuente saque la informacion:
+https://docs.python.org/es/3/library/string.html
+
+Tambien se utilizaron funciones en el codigo, como puede ser "sum", esta funcion sirve para sumar los elementos de una lista. De esta fuente saque la información:
+https://docs.python.org/es/3/library/functions.html
