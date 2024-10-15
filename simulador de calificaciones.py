@@ -96,7 +96,8 @@ def ingresar_calificaciones():
         # Ingreso de las 4 calificaciones de las actividades
         for j in range(1, 5):
             while True:
-                calificacion = float(input(f'Ingrese su calificación de la actividad {j} (0-10): '))
+                calificacion = float(input('Ingrese su calificación de la actividad ' + str(j) + ' (0-10): '))
+
                 if 0 <= calificacion <= 10:
                     calificaciones.append(calificacion)
                     break
@@ -151,7 +152,7 @@ def menu():
             print("Saliendo del programa...")
             break  # Sale del programa
         else:
-            print("Opcion no valida. Intente de nuevo.")  # Manejo de errores
+            print("Opcion no valida. Intente de nuevo.")  # En caso de escoger una opcion incorrecta
 
 # Llamada a la funcion principal del menu
 menu()
